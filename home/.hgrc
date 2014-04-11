@@ -1,0 +1,34 @@
+[ui]
+username = Niv Ben-David <nivbend@gmail.com>
+ignore = ~/.hgignore
+editor = nano
+
+[extensions]
+pager =
+color =
+graphlog =
+purge =
+extdiff =
+
+[defaults]
+tip = --verbose
+log = --verbose
+outgoing = --graph
+purge = --exclude *.orig
+
+[alias]
+rediff = import --force --no-commit
+
+[merge-patterns]
+
+[tortoisehg]
+editor = /usr/bin/sublime
+shell = /bin/bash
+vdiff = kdiff3
+
+[pager]
+pager = less --RAW-CONTROL-CHARS --chop-long-lines --QUIET
+attend = annotate, cat, diff, export, glog, help
+ignore = version
+
+[color]

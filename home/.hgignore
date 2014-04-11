@@ -1,0 +1,10 @@
+syntax: glob
+*~
+*.o
+*.a
+*.pyc
+*.pyo
+
+syntax: regexp
+^(.*/)*bin/.*$
+^(.*/)*doc/.*$
