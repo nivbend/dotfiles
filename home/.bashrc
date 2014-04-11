@@ -115,6 +115,15 @@ if [ -f $tmux_completion ]; then
     . $tmux_completion
 fi
 
+# Bootstrap homeshick.
+if [ -d "$HOME/.homesick" ]; then
+    source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+    source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+
+    # Update configurations.
+    homeshick --quiet refresh
+fi
+
 export EDITOR=vim
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
