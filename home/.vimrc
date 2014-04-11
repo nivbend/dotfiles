@@ -110,3 +110,10 @@ set undodir=~/.vim/undo
 set undolevels=1000
 set undoreload=10000
 set undofile
+
+" Source local vim configuration.
+try
+    source $HOME/.vimrc.local
+catch
+    " Ignore missing file.
+endtry
