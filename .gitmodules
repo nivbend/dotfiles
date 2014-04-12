@@ -7,3 +7,6 @@
 [submodule "home/.vim/bundle/indent-guides"]
 	path = home/.vim/bundle/indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides
+[submodule "home/.vim/bundle/matchit"]
+	path = home/.vim/bundle/matchit
+	url = https://github.com/edsono/vim-matchit.git
