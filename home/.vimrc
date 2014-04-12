@@ -111,6 +111,9 @@ set undolevels=1000
 set undoreload=10000
 set undofile
 
+" Toggle taglist window.
+nmap <Leader>t :TlistToggle<CR>
+
 " Source local vim configuration.
 try
     source $HOME/.vimrc.local
