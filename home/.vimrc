@@ -6,8 +6,8 @@ syntax enable
 
 " Set colorscheme.
 set t_Co=256
+colorscheme molokai
 set background=dark
-colorscheme desert
 
 " General settings.
 set nocompatible
