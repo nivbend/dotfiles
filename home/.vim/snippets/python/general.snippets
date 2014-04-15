@@ -1,0 +1,23 @@
+snippet #!
+	#! /usr/bin/env python
+snippet import
+	import ${1:module}
+	${0}
+snippet from
+	from ${1:package} import ${2:module}
+	${0}
+snippet ifmain
+	def $1:
+		${0:pass}
+
+	if __name__ == "__main__":
+		${1:run()}
+snippet _
+	__${1:init}__
+# Functions.
+snippet def
+	def ${1:foo}(${2:`indent('.') ? 'self' : ''`}):
+		${0:pass}
+# Debugging.
+snippet pdb
+	import pdb; pdb.set_trace()

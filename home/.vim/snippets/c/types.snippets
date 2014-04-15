@@ -1,0 +1,12 @@
+snippet td
+	typedef ${1:type} ${2:my_type}_t;
+snippet tds
+	typedef struct $1_s
+	{
+		${2:type} ${3:variable};${0}
+	} ${1:TYPE}_t;
+snippet tde
+	typedef enum $1_e
+	{
+		${2:ENUMERATOR},${0}
+	} ${1:ENUMERATION}_t;

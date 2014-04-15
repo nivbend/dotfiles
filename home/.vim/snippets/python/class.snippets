@@ -1,0 +1,9 @@
+snippet class
+	class ${1:ClassName}(${2:object}):
+		def __init__(self, ${3:arg}):
+			${4:super($1, self).__init__()}
+			self.__$3 = $3
+snippet prop
+	@property
+	def ${1:name}(self):
+		${0:return self.__$1}

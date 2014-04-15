@@ -1,0 +1,22 @@
+snippet ndef
+	#ifndef $1
+	#define ${1:SYMBOL} ${0:value}
+	#endif /* !$1 */
+snippet #def
+	#define ${1:SYMBOL} ${0}
+# Wrap code in #ifdef...#endif.
+snippet ifdef
+	#ifdef ${1:NDEBUG}
+	{VISUAL}#endif /* $1 */
+# Wrap code in #ifndef...#endif.
+snippet ifndef
+	#ifndef ${1:NDEBUG}
+	{VISUAL}#endif /* !$1 */
+# Header include guard.
+snippet once
+	#ifndef ${1:`toupper(Filename('$1_H', 'UNTITLED_H'))`}
+	#define $1
+
+	${0}
+
+	#endif /* !$1 */

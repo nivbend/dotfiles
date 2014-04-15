@@ -1,0 +1,28 @@
+snippet try Try/Except
+	try:
+		${1:pass}
+	except ${2:Exception as e}:
+		${0:raise e}
+snippet try Try/Except/Else
+	try:
+		${1:pass}
+	except ${2:Exception as e}:
+		${3:raise e}
+	else:
+		${0:pass}
+snippet try Try/Except/Finally
+	try:
+		${1:pass}
+	except ${2:Exception as e}:
+		${3:raise e}
+	finally:
+		${0:pass}
+snippet try Try/Except/Else/Finally
+	try:
+		${1:pass}
+	except ${2:Exception as e}:
+		${3:raise e}
+	else:
+		${4:pass}
+	finally:
+		${0:pass}

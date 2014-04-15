@@ -1,0 +1,21 @@
+snippet testcase
+	class ${1:MyTestCase}(unittest.TestCase):
+		def test_${2:description}(self):
+			${0:pass}
+snippet test
+	def test_${1:description}(${2:`indent('.') ? 'self' : ''`}):
+		${0:pass}
+# Assertions.
+snippet a=
+	self.assertEqual(${1}, ${2})
+snippet a>
+	self.assertGreater(${1}, ${2})
+snippet a>=
+	self.assertGreaterEqual(${1}, ${2})
+snippet a<
+	self.assertLess(${1}, ${2})
+snippet a<=
+	self.assertLessEqual(${1}, ${2})
+snippet ar
+	with self.assertRaises(${1:Exception}):
+		${0}

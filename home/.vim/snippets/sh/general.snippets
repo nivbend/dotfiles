@@ -1,0 +1,43 @@
+# Shebang. Executing bash via /usr/bin/env makes scripts more portable.
+snippet #!
+	#! /usr/bin/env bash
+
+	${0}
+# Flow control statements.
+snippet if
+	if [[ ${1:condition} ]]; then
+		${0}
+	fi
+snippet elif
+	elif [[ ${1:condition} ]]; then
+		${0}
+snippet for
+	for (( ${1:i} = 0; $1 < ${2:count}; $1++ )); do
+		${3:statements}
+	done
+snippet fori
+	for ${1:needle} in ${2:haystack} ; do
+		${3:statements}
+	done
+snippet while
+	while [[ ${1:condition} ]]; do
+		${2:statements}
+	done
+snippet until
+	until [[ ${1:condition} ]]; do
+		${2:statements}
+	done
+snippet case
+	case ${1:word} in
+		${2:pattern})
+			${3};;${0}
+	esac
+# Functions.
+snippet fun
+	${1:function_name}() {
+		${0}
+	}
+snippet ffun
+	function ${1:function_name}() {
+		${0}
+	}

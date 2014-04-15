@@ -1,0 +1,49 @@
+snippet if
+	if (${1:condition})
+	{
+		${0}
+	}
+snippet elif
+	else if (${1:condition})
+	{
+		${0}
+	}
+snippet else
+	else
+	{
+		${0}
+	}
+
+snippet switch
+	switch (${1:var})
+	{
+		case ${2:CASE}:
+			${3}
+			${4:break;}
+
+		default:
+			${5}
+			break;
+	}
+snippet case
+	case ${1:CASE}:
+		${0}
+		${3:break;}
+
+snippet for
+	for (${1:i} = ${2:0}; ${3:$1 < }${4:COUNT}; ${5:++$1}) {
+		${0}
+	}
+
+snippet while
+	while (${1})
+	{
+		${0}
+	}
+
+snippet do
+	do
+	{
+		${0}
+	} while (${1});
+
