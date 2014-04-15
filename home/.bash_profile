@@ -7,7 +7,7 @@ stty -ixon
 
 # Start ssh-agent.
 SSH_ENV="$HOME/.ssh/environment"
-SSH_FILES="github"
+SSH_FILES="github bitbucket"
 
 function start_agent {
     # Start agent and store environment file.
