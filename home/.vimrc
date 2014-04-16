@@ -19,8 +19,9 @@ set ruler
 set backspace=indent,eol,start
 set scrolloff=1
 
-" Show relative line numbers.
+" Show relative line numbers and current line number.
 set relativenumber
+set number
 
 " Restore last position when openning file.
 autocmd BufWinLeave * mkview
