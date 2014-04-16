@@ -18,6 +18,7 @@ set showcmd
 set ruler
 set backspace=indent,eol,start
 set scrolloff=1
+set noswapfile
 
 " Show relative line numbers and current line number.
 set relativenumber
