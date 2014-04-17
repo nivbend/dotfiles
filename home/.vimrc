@@ -113,6 +113,12 @@ set undolevels=1000
 set undoreload=10000
 set undofile
 
+" Configure indent-guides to match colorscheme.
+let g:indent_guides_start_level = 2
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235 guibg=red
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234 guibg=green
+
 " Toggle taglist window.
 nmap <Leader>t :TlistToggle<CR>
 
