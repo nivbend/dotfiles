@@ -66,7 +66,7 @@ set smartindent
 set cindent
 
 " Highlight trailing spaces.
-highligh TrailingSpaces ctermbg=red
+highlight TrailingSpaces ctermbg=red
 match TrailingSpaces /\s\+$/
 
 " Command to remove trailing spaces.
