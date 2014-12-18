@@ -13,9 +13,5 @@ alias grep='grep --color=auto'
 # cd typos.
 alias cd..='cd ..'
 
-# apt-get shortcuts.
-alias ag-install='sudo apt-get install'
-alias ag-search='apt-cache search'
-
 # Run tmux with 256 colors by default.
 alias tmux='tmux -2'
