@@ -1,0 +1,13 @@
+[user]
+	email = nivbend@gmail.com
+	name = Niv Ben-David
+[push]
+	default = simple
+[color]
+	ui = true
+[core]
+	pager = less --RAW-CONTROL-CHARS --chop-long-lines --QUIET
+[alias]
+	st = status --short
+[credential]
+	helper = cache
