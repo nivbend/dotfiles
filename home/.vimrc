@@ -134,3 +134,12 @@ try
 catch
     " Ignore missing file.
 endtry
+
+" tmux-navigator configuration.
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <Esc>h :TmuxNavigateLeft<CR>
+nnoremap <silent> <Esc>j :TmuxNavigateDown<CR>
+nnoremap <silent> <Esc>k :TmuxNavigateUp<CR>
+nnoremap <silent> <Esc>l :TmuxNavigateRight<CR>
+nnoremap <silent> <Esc>\ :TmuxNavigatePrevious<CR>
