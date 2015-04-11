@@ -55,7 +55,7 @@ set hlsearch
 set gdefault
 
 " Enforce maximum line length.
-set textwidth=80
+set textwidth=100
 set colorcolumn=+1
 set nowrap
 set formatoptions=croqn1j
