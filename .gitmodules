@@ -25,9 +25,6 @@
 [submodule "home/.vim/bundle/clang_complete"]
 	path = home/.vim/bundle/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
-[submodule "home/.vim/bundle/cscope"]
-	path = home/.vim/bundle/cscope
-	url = https://github.com/vim-scripts/cscope.vim
 [submodule "home/.vim/bundle/vim-tmux-navigator"]
 	path = home/.vim/bundle/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
