@@ -4,9 +4,6 @@
 [submodule "home/.vim/bundle/easymotion"]
 	path = home/.vim/bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
-[submodule "home/.vim/bundle/matchit"]
-	path = home/.vim/bundle/matchit
-	url = https://github.com/edsono/vim-matchit.git
 [submodule "home/.vim/bundle/taglist"]
 	path = home/.vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
