@@ -128,13 +128,6 @@ let g:clang_user_options='|| exit 0'
 let g:clang_complete_auto = 1
 let g:clang_complete_copen = 1
 
-" Source local vim configuration.
-try
-    source $HOME/.vimrc.local
-catch
-    " Ignore missing file.
-endtry
-
 " tmux-navigator configuration.
 let g:tmux_navigator_no_mappings = 1
 
