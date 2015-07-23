@@ -8,7 +8,7 @@
 [core]
 	pager = less --RAW-CONTROL-CHARS --chop-long-lines --QUIET
 [alias]
-	st = status --short
+	st = status --short -uall
 	glog = log --graph --oneline --decorate --all
 [credential]
 	helper = cache
