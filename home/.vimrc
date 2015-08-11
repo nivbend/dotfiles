@@ -107,6 +107,10 @@ nmap <C-h> mz<<`z4h
 vmap <C-j> :m'>+1<CR>`<my`>mzgv`yo`z
 vmap <C-k> :m'<-2<CR>`>my`<mzgv`yo`z
 
+" Disable sections in C/C++ files.
+autocmd FileType c,cpp vmap <Leader>i <Esc>'<O#if 0<Esc>'>o#endif<Esc>'<
+autocmd FileType c,cpp vmap <Leader>e <Esc>'<O#if 0<Esc>'>o#else<CR>#endif<Esc>O
+
 " Persistent undo history between session.
 set undodir=~/.vim/undo
 set undolevels=1000
