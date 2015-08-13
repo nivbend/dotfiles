@@ -21,3 +21,5 @@ snippet def
 # Debugging.
 snippet pdb
 	import pdb; pdb.set_trace()
+snippet stderr
+	from sys import stderr; print >> stderr, ${1}
