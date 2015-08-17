@@ -108,6 +108,14 @@ vmap <C-j> :m'>+1<CR>`<my`>mzgv`yo`z
 vmap <C-k> :m'<-2<CR>`>my`<mzgv`yo`z
 
 " Disable sections in C/C++ files.
+function! s:wrap_in_disabling_if(num_lines)
+    execute "normal O#if 0"
+    execute "normal " . a:num_lines . "j"
+    execute "normal o#endif"
+endfunction
+
+autocmd FileType c,cpp nmap <Leader>i :<C-U>call <SID>wrap_in_disabling_if(v:count1)<CR>
+autocmd FileType c,cpp nmap <Leader>e :<C-U>call <SID>wrap_in_disabling_if(v:count1)<CR>O#else<CR>
 autocmd FileType c,cpp vmap <Leader>i <Esc>'<O#if 0<Esc>'>o#endif<Esc>'<
 autocmd FileType c,cpp vmap <Leader>e <Esc>'<O#if 0<Esc>'>o#else<CR>#endif<Esc>O
 
