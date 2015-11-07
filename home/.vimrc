@@ -148,3 +148,9 @@ nnoremap <silent> <Esc>j :TmuxNavigateDown<CR>
 nnoremap <silent> <Esc>k :TmuxNavigateUp<CR>
 nnoremap <silent> <Esc>l :TmuxNavigateRight<CR>
 nnoremap <silent> <Esc>\ :TmuxNavigatePrevious<CR>
+
+" Ignore more directories and files on CtrlP's lists.
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v([\/]\.(git|hg|svn)|\.egg-info)$',
+            \ 'file': '\v\.(a|so|pyc)$',
+            \ }
