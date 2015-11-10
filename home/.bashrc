@@ -94,37 +94,6 @@ fi
 # Disable XOFF.
 stty -ixon
 
-# Start ssh-agent.
-SSH_ENV="$HOME/.ssh/environment"
-SSH_FILES="cloudio github bitbucket"
-
-function start_ssh_agent {
-    # Start agent and store environment file.
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    chmod 600 "${SSH_ENV}"
-
-    source "${SSH_ENV}" > /dev/null
-
-    # Add all keys.
-    for key_file in $SSH_FILES; do
-        if [ -e $HOME/.ssh/$key_file ]; then
-            /usr/bin/ssh-add $HOME/.ssh/$key_file
-        fi
-    done;
-}
-
-# Source SSH settings, if applicable.
-if [ -f "${SSH_ENV}" ]; then
-    source "${SSH_ENV}" > /dev/null
-
-    # ps ${SSH_AGENT_PID} doesn't work under cywgin.
-    ps -Cssh-agent | grep ${SSH_AGENT_PID} > /dev/null || {
-        start_ssh_agent;
-    }
-else
-    start_ssh_agent;
-fi
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
