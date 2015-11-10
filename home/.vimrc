@@ -53,6 +53,7 @@ set ignorecase
 set smartcase
 set hlsearch
 set gdefault
+set nowrapscan
 
 " Enforce maximum line length.
 set textwidth=100
