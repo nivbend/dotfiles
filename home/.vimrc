@@ -115,6 +115,7 @@ function! s:wrap_in_disabling_if(num_lines)
     execute "normal o#endif"
 endfunction
 
+autocmd FileType html,htmldjango setlocal shiftwidth=2 tabstop=2
 autocmd FileType c,cpp nmap <Leader>i :<C-U>call <SID>wrap_in_disabling_if(v:count1)<CR>
 autocmd FileType c,cpp nmap <Leader>e :<C-U>call <SID>wrap_in_disabling_if(v:count1)<CR>O#else<CR>
 autocmd FileType c,cpp vmap <Leader>i <Esc>'<O#if 0<Esc>'>o#endif<Esc>'<
