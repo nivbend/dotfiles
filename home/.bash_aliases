@@ -15,3 +15,5 @@ alias cd..='cd ..'
 
 # Run tmux with 256 colors by default.
 alias tmux='tmux -2'
+
+alias cless='less --RAW-CONTROL-CHARS --chop-long-lines'
