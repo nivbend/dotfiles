@@ -137,7 +137,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234 guibg=green
 nmap <Leader>t :TlistToggle<CR>
 
 " Set clang_complete options.
-let g:clang_library_path = '/usr/lib/llvm-3.4/lib/'
+let g:clang_library_path = '/usr/lib/llvm-3.6/lib/'
 let g:clang_user_options='|| exit 0'
 let g:clang_complete_auto = 1
 let g:clang_complete_copen = 1
