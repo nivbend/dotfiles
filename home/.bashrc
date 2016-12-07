@@ -133,5 +133,6 @@ export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
 export WORKON_HOME="$HOME/.venvs"
 export PROJECT_HOME="$HOME/projects"
 export PROMPT_COMMAND="history -a"
+export LC_ALL=C
 
 source "/usr/local/bin/virtualenvwrapper.sh"
