@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-tmux_completion=/usr/share/doc/tmux/examples/bash_completion_tmux.sh
+tmux_completion=~/.config/tmux_completion.sh
 if [ -f $tmux_completion ]; then
     . $tmux_completion
 fi
