@@ -131,12 +131,4 @@ if [ -d "$HOME/.homesick" ]; then
     homeshick --quiet refresh
 fi
 
-export EDITOR=vim
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
-export WORKON_HOME="$HOME/.venvs"
-export PROJECT_HOME="$HOME/projects"
-export PROMPT_COMMAND="history -a"
-export LC_ALL=C
-
 source "/usr/local/bin/virtualenvwrapper.sh"
