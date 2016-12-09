@@ -7,3 +7,7 @@ export PROMPT_COMMAND="history -a"
 if [ -d "$HOME/.local/bin" ]; then
     export PATH=$PATH:$HOME/.local/bin
 fi
+
+if [ -f "$HOME/.bashrc" ]; then
+    source $HOME/.bashrc
+fi
