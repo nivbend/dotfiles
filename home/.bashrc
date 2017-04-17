@@ -131,4 +131,6 @@ if [ -d "$HOME/.homesick" ]; then
     homeshick --quiet refresh
 fi
 
-source "/usr/local/bin/virtualenvwrapper.sh"
+if [ -f  "/usr/local/bin/virtualenvwrapper.sh" ]; then
+    source "/usr/local/bin/virtualenvwrapper.sh"
+fi
