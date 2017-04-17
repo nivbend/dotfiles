@@ -134,3 +134,7 @@ fi
 if [ -f  "/usr/local/bin/virtualenvwrapper.sh" ]; then
     source "/usr/local/bin/virtualenvwrapper.sh"
 fi
+
+if [[ -f "$HOME/.bashrc.local" ]]; then
+    source "$HOME/.bashrc.local"
+fi
