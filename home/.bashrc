@@ -94,6 +94,11 @@ fi
 # Disable XOFF.
 stty -ixon
 
+# Append history in multi-session scenarios.
+shopt -s histappend
+export HISTCONTROL=ignoredups:erasedups
+export PROMPT_COMMAND="history -a"
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
