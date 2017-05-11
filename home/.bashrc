@@ -140,6 +140,12 @@ if [ -f  "/usr/local/bin/virtualenvwrapper.sh" ]; then
     source "/usr/local/bin/virtualenvwrapper.sh"
 fi
 
+# todo.txt
+if [ -x "$HOME/.local/bin/todo.sh" ]; then
+    alias t="$HOME/.bin/todo.sh"
+    complete -F _todo t
+fi
+
 if [[ -f "$HOME/.bashrc.local" ]]; then
     source "$HOME/.bashrc.local"
 fi
