@@ -16,3 +16,6 @@
 	helper = cache
 [pull]
 	rebase = true
+[rerere]
+	enabled = true
+	autoupdate = true
