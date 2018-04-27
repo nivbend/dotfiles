@@ -7,6 +7,7 @@
 	ui = true
 [core]
 	pager = less --RAW-CONTROL-CHARS --chop-long-lines --QUIET
+	autocrlf = true
 [alias]
 	st = status --short -uall
 	glog = log --graph --oneline --decorate --all
