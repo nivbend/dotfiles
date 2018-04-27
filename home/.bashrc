@@ -150,6 +150,10 @@ if [[ $(command -v direnv > /dev/null 2>&1) -eq 0 ]]; then
     eval $(direnv hook bash)
 fi
 
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$PATH:$HOME/.cargo/bin"
+fi
+
 if [[ -f "$HOME/.bashrc.local" ]]; then
     source "$HOME/.bashrc.local"
 fi
