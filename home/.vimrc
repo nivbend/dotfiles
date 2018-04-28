@@ -56,6 +56,11 @@ set hlsearch
 set gdefault
 set nowrapscan
 
+if executable('ack')
+    set grepprg="ack -s -H --nocolor --nogroup --column"
+    set grepformat="%f:%l:%c:%m,%f:%l:%m"
+endif
+
 " Enforce maximum line length.
 set textwidth=100
 set colorcolumn=+1
