@@ -109,6 +109,9 @@ nmap <C-h> mz<<`z4h
 vmap <C-j> :m'>+1<CR>`<my`>mzgv`yo`z
 vmap <C-k> :m'<-2<CR>`>my`<mzgv`yo`z
 
+" sudo :w
+cmap w!! w !sudo tee % > /dev/null
+
 " Disable sections in C/C++ files.
 function! s:wrap_in_disabling_if(num_lines)
     execute "normal O#if 0"
