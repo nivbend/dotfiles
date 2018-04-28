@@ -19,6 +19,7 @@ set ruler
 set backspace=indent,eol,start
 set scrolloff=1
 set noswapfile
+set wildmenu
 
 " Show relative line numbers and current line number.
 set relativenumber
