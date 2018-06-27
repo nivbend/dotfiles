@@ -10,7 +10,7 @@
 	autocrlf = true
 [alias]
 	st = status --short -uall
-	glog = log --graph --oneline --decorate --all
+	glog = log --graph --oneline --decorate
 	autosquash = rebase --autosquash -i
 [credential]
 	helper = cache
