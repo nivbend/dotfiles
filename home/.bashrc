@@ -147,7 +147,7 @@ if [ -x "$HOME/.local/bin/todo.sh" ]; then
 fi
 
 if [[ $(command -v direnv > /dev/null 2>&1) -eq 0 ]]; then
-    eval $(direnv hook bash)
+    eval "$(direnv hook bash)"
 fi
 
 if [ -d "$HOME/.cargo/bin" ]; then
