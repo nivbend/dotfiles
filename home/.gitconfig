@@ -10,7 +10,7 @@
 [alias]
 	st = status --short -uall
 	glog = log --graph --oneline --decorate
-	autosquash = rebase --autosquash -i
+	autosquash = rebase --autosquash --autostash -i
 [credential]
 	helper = cache
 [pull]
