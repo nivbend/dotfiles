@@ -161,9 +161,6 @@ nnoremap <silent> <Esc>l :TmuxNavigateRight<CR>
 nnoremap <silent> <Esc>\ :TmuxNavigatePrevious<CR>
 
 " Ignore more directories and files on CtrlP's lists.
-let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v([\/]\.(git|hg|svn)|\.egg-info)$',
-            \ 'file': '\v\.(a|so|pyc)$',
-            \ }
+let g:ctrlp_user_command=[ '.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f' ]
 let g:ctrlp_switch_buffer=0
-let g:ctrlp_working_path_mode=0
+let g:ctrlp_working_path_mode='ra'
