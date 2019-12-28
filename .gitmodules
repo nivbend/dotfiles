@@ -1,29 +1,29 @@
 [submodule "home/.vim/bundle/ctrlp"]
-	path = home/.vim/bundle/ctrlp
+	path = home/.vim/pack/nivbend/start/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule "home/.vim/bundle/easymotion"]
-	path = home/.vim/bundle/easymotion
+	path = home/.vim/pack/nivbend/start/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
 [submodule "home/.vim/bundle/a"]
-	path = home/.vim/bundle/a
+	path = home/.vim/pack/nivbend/start/a
 	url = https://github.com/vim-scripts/a.vim.git
 [submodule "home/.vim/bundle/commentary"]
-	path = home/.vim/bundle/commentary
+	path = home/.vim/pack/nivbend/start/commentary
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "home/.vim/bundle/tlib"]
-	path = home/.vim/bundle/tlib
+	path = home/.vim/pack/nivbend/start/tlib
 	url = https://github.com/tomtom/tlib_vim.git
 [submodule "home/.vim/bundle/mw-utils"]
-	path = home/.vim/bundle/mw-utils
+	path = home/.vim/pack/nivbend/start/mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "home/.vim/bundle/snipmate"]
-	path = home/.vim/bundle/snipmate
+	path = home/.vim/pack/nivbend/start/snipmate
 	url = https://github.com/garbas/vim-snipmate.git
 [submodule "home/.vim/bundle/clang_complete"]
-	path = home/.vim/bundle/clang_complete
+	path = home/.vim/pack/nivbend/start/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
 [submodule "home/.vim/bundle/vim-tmux-navigator"]
-	path = home/.vim/bundle/vim-tmux-navigator
+	path = home/.vim/pack/nivbend/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
 [submodule "home/.vim/bundle/vim-go"]
 	path = home/.vim/bundle/vim-go
