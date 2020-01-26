@@ -2,14 +2,14 @@
 	email = nivbend@gmail.com
 	name = Niv Ben-David
 [push]
-	default = simple
+	default = current
 [color]
 	ui = true
 [core]
 	pager = less --RAW-CONTROL-CHARS --chop-long-lines --QUIET
 [alias]
 	st = status --short -uall
-	glog = log --graph --oneline --decorate
+        glog = log --color --graph --abbrev-commit --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	autosquash = rebase --autosquash --autostash -i
 [credential]
 	helper = cache
