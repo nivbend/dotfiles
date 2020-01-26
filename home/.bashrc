@@ -122,9 +122,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-tmux_completion=$HOME/.config/tmux_completion.sh
-if [ -f $tmux_completion ]; then
-    . $tmux_completion
+tmux_completion="$HOME/.config/tmux_completion.sh"
+if [[ -f "$tmux_completion" ]]; then
+    source "$tmux_completion"
+fi
+
+if [[ -f "$HOME/.bashrc.local" ]]; then
+    source "$HOME/.bashrc.local"
 fi
 
 # Bootstrap homeshick.
@@ -136,7 +140,7 @@ if [ -d "$HOME/.homesick" ]; then
     homeshick --quiet refresh
 fi
 
-if [ -f  "/usr/local/bin/virtualenvwrapper.sh" ]; then
+if [[ -f "/usr/local/bin/virtualenvwrapper.sh" ]]; then
     source "/usr/local/bin/virtualenvwrapper.sh"
 fi
 
@@ -150,10 +154,6 @@ if [[ $(command -v direnv > /dev/null 2>&1) -eq 0 ]]; then
     eval "$(direnv hook bash)"
 fi
 
-if [ -d "$HOME/.cargo/bin" ]; then
-    export PATH="$PATH:$HOME/.cargo/bin"
-fi
-
-if [[ -f "$HOME/.bashrc.local" ]]; then
-    source "$HOME/.bashrc.local"
+if [[ -f "$HOME/.cargo/env" ]]; then
+    source "$HOME/.cargo/env"
 fi
