@@ -7,6 +7,8 @@
 	ui = true
 [core]
 	pager = less --RAW-CONTROL-CHARS --chop-long-lines --QUIET
+[commit]
+	verbose = true
 [alias]
 	st = status --short -uall
         glog = log --color --graph --abbrev-commit --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
