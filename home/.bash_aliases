@@ -9,3 +9,12 @@ alias grep='grep --color=auto'
 alias tmux='tmux -2'
 
 alias cless='less --RAW-CONTROL-CHARS --chop-long-lines'
+
+# Not really an alias, but nowhere else to put it.
+mkcd() {
+    mkdir "$@" && cd "$_"
+}
+
+mkpush() {
+    mkdir "$@" && pushd "$_"
+}
