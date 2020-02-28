@@ -37,54 +37,90 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color) color_prompt=true;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
+if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=true
+else
+    color_prompt=false
 fi
 
-function __hg_branch() {
-    branch=$(hg branch 2> /dev/null)
+# Supported since bash 4. Trim more than X directory levels in prompt.
+export PROMPT_DIRTRIM=3
 
-    if [ $? -eq 0 ]; then
-        if [ "$branch" = default ]; then
-            branch=""
-        else
-            branch="$branch "
-        fi
-
-        echo -ne " [$branch$(hg id -n)]"
+__parse_git_dirty() {
+    declare -r status="$(git status 2>&1 | tee)"
+    declare bits=""
+    if echo "$status" | grep -q "modified:"; then
+        bits=">$bits"
     fi
+    if echo "$status" | grep -q "Untracked files"; then
+        bits="*$bits"
+    fi
+    if echo "$status" | grep -q "Your branch is ahead of"; then
+        bits="+$bits"
+    fi
+    if echo "$status" | grep -q "new file:"; then
+        bits="?$bits"
+    fi
+    if echo "$status" | grep -q "renamed:"; then
+        bits="x$bits"
+    fi
+    if echo "$status" | grep -q "deleted:"; then
+        bits="!$bits"
+    fi
+
+    echo "${bits:+ $bits}"
 }
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
+__ps1_git_status() {
+    declare restore_xtrace=false
+    if shopt -po xtrace | grep -q -- "-o"; then
+        restore_xtrace=true
+    fi
+    set +x
+    declare -r last_rc="$?"
+    declare -r git_branch="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
+    if [[ -n "$git_branch" ]]; then
+        echo " [${git_branch}$(__parse_git_dirty)]"
+    fi
+    if $restore_xtrace; then
+        set +x
+    fi
+    return "$last_rc" # Preserve last command's return code.
+}
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+__ps1_last_rc() {
+    declare -r last_rc="$?"
+    if [[ "$last_rc" -ne 0 ]]; then
+        echo " ($last_rc)"
+    fi
+    return "$last_rc" # Preserve last command's return code.
+}
+
+if $color_prompt; then
+    declare -a ps1_parts=(
+        '${debian_chroot:+($debian_chroot)}'
+        '\[\033[1;32m\]\u'
+        '@'
+        '\[\033[1;34m\]\h'
+        ':'
+        '\[\033[36m\]\w'
+        '\[\033[33m\]$(__ps1_git_status)'
+        '\[\033[31m\]$(__ps1_last_rc)'
+        '$ '
+    )
+
+    PS1="$(printf '%s\[\033[0m\]' "${ps1_parts[@]}")"
+    unset ps1_parts
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__ps1_git_status)$(__ps1_last_rc)\$ '
+fi
+unset color_prompt
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
