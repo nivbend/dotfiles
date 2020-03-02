@@ -52,56 +52,6 @@ fi
 # Supported since bash 4. Trim more than X directory levels in prompt.
 export PROMPT_DIRTRIM=3
 
-__parse_git_dirty() {
-    declare -r status="$(git status 2>&1 | tee)"
-    declare bits=""
-    if echo "$status" | grep -q "modified:"; then
-        bits=">$bits"
-    fi
-    if echo "$status" | grep -q "Untracked files"; then
-        bits="*$bits"
-    fi
-    if echo "$status" | grep -q "Your branch is ahead of"; then
-        bits="+$bits"
-    fi
-    if echo "$status" | grep -q "new file:"; then
-        bits="?$bits"
-    fi
-    if echo "$status" | grep -q "renamed:"; then
-        bits="x$bits"
-    fi
-    if echo "$status" | grep -q "deleted:"; then
-        bits="!$bits"
-    fi
-
-    echo "${bits:+ $bits}"
-}
-
-__ps1_git_status() {
-    declare restore_xtrace=false
-    if shopt -po xtrace | grep -q -- "-o"; then
-        restore_xtrace=true
-    fi
-    set +x
-    declare -r last_rc="$?"
-    declare -r git_branch="$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
-    if [[ -n "$git_branch" ]]; then
-        echo " [${git_branch}$(__parse_git_dirty)]"
-    fi
-    if $restore_xtrace; then
-        set +x
-    fi
-    return "$last_rc" # Preserve last command's return code.
-}
-
-__ps1_last_rc() {
-    declare -r last_rc="$?"
-    if [[ "$last_rc" -ne 0 ]]; then
-        echo " ($last_rc)"
-    fi
-    return "$last_rc" # Preserve last command's return code.
-}
-
 if $color_prompt; then
     declare -a ps1_parts=(
         '${debian_chroot:+($debian_chroot)}'
@@ -110,15 +60,13 @@ if $color_prompt; then
         '\[\033[1;34m\]\h'
         ':'
         '\[\033[36m\]\w'
-        '\[\033[33m\]$(__ps1_git_status)'
-        '\[\033[31m\]$(__ps1_last_rc)'
         '$ '
     )
 
     PS1="$(printf '%s\[\033[0m\]' "${ps1_parts[@]}")"
     unset ps1_parts
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__ps1_git_status)$(__ps1_last_rc)\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt
 
