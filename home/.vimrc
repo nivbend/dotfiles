@@ -162,3 +162,6 @@ nnoremap <silent> <Esc>\ :TmuxNavigatePrevious<CR>
 let g:ctrlp_user_command=[ '.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f' ]
 let g:ctrlp_switch_buffer=0
 let g:ctrlp_working_path_mode='ra'
+
+" Run `rustfmt` automatically when saving a buffer.
+let g:rustfmt_autosave = 1
