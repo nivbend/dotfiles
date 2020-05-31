@@ -134,6 +134,14 @@ set undolevels=1000
 set undoreload=10000
 set undofile
 
+if !exists("g:os")
+    if has("win64") || has("win32") || has("win16")
+        let g:os = "Windows"
+    else
+        let g:os = substitute(system('uname'), '\n', '', '')
+    endif
+endif
+
 " Configure indent-guides to match colorscheme.
 let g:indent_guides_start_level = 2
 let g:indent_guides_auto_colors = 0
@@ -144,8 +152,12 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234 guibg=green
 nmap <Leader>t :TlistToggle<CR>
 
 " Set clang_complete options.
-let g:clang_library_path = '/usr/lib/llvm-3.6/lib/'
-let g:clang_user_options='|| exit 0'
+if g:os == "Linux"
+    let g:clang_library_path = '/usr/lib/llvm-3.6/lib/'
+elseif g:os == "Darwin"
+    let g:clang_library_path = substitute(system('mdfind -name libclang.dylib'), '\n', '', '')
+endif
+"let g:clang_user_options='|| exit 0'
 let g:clang_complete_auto = 1
 let g:clang_complete_copen = 1
 
