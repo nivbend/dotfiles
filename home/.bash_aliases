@@ -18,3 +18,9 @@ mkcd() {
 mkpush() {
     mkdir "$@" && pushd "$_"
 }
+
+mktar() {
+    declare -r tarball="$(realpath $1)"
+    shift
+    mkcd "$@" && tar -xf "$tarball"
+}
